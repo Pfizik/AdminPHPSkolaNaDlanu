@@ -1,0 +1,7 @@
+{
+    "e_posta"       : "viktor.golja-kulic@skole.hr", 
+    "ustanova"      : "gimnazija-pula",
+    "funkcija"      : "učenik",
+    "sesija"        : "0.02511998",
+    "imeIPrezime"   : "VIKTOR GOLJA"
+}

@@ -1,0 +1,7 @@
+{
+    "e_posta"       : "ines.dukic2@skole.hr", 
+    "ustanova"      : "gimnazija-pula",
+    "funkcija"      : "učenik",
+    "sesija"        : "0,51767855",
+    "imeIPrezime"   : "Ines Dukić"
+}

@@ -1,0 +1,7 @@
+{
+    "e_posta"       : "eva.grujic1@skole.hr", 
+    "ustanova"      : "gimnazija-pula",
+    "funkcija"      : "djelatnik",
+    "sesija"        : "0.00800607",
+    "imeIPrezime"   : "Eva Grujić"
+}

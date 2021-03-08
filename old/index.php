@@ -1,6 +1,12 @@
-<?php include "data/https.php"; ?>
+<?php
+include "data/https.php";
+?>
+<?php 
+include "data/session.php";
 
-<?php include "data/session.php"; ?>
+?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +22,8 @@
     <meta property="og:title" content="Aplikacija Škola na dlanu - Gimnazija Pula">
     <meta property="og:site_name" content="Škola na dlanu">
     <meta property="og:url" content="https://www.školanadlanu.hr">
-    <meta property="og:description" content="Korisna aplikacija Škola na dlanu služi profesorima i učenicima za bržu i lakšu komunikaciju unutar škole. ">
+    <meta property="og:description"
+        content="Korisna aplikacija Škola na dlanu služi profesorima i učenicima za bržu i lakšu komunikaciju unutar škole. ">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/data/logo.png">
     <meta property='og:image:width' content='1200' />
@@ -26,7 +33,8 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <meta name="Description" content="Korisna aplikacija Škola na dlanu služi profesorima i učenicima Gimnazije Pula za bržu i lakšu komunikaciju unutar škole.">
+    <meta name="Description"
+        content="Korisna aplikacija Škola na dlanu služi profesorima i učenicima Gimnazije Pula za bržu i lakšu komunikaciju unutar škole.">
     <meta name="Keywords" content="Raspored Gimnazije Pula,raspored,suglasnost,suglasnosti">
     <title>Škola na dlanu</title>
     <style>
@@ -38,8 +46,8 @@
             margin: 0;
             font-size: 1.05vw;
         }
-
-        /* Spinner početak */
+        
+     /* Spinner početak */
         #container-loader {
             position: absolute;
             width: 100%;
@@ -165,8 +173,8 @@
 
         #user-login {
             position: absolute;
-            top: 0.75rem;
-            right: 0.75rem;
+            top: 0rem;
+            right: 0.1rem;
             /* max-width: 10.5rem; */
             width: fit-content;
             height: auto;
@@ -179,7 +187,6 @@
             z-index: 20;
             transition: 0.3s;
         }
-
         #user-login img {
             width: 3.3rem;
             height: auto;
@@ -191,12 +198,10 @@
             transition: 0.3s;
             cursor: pointer;
         }
-
         #user-login:hover p {
             color: black;
             transition: 0.3s;
         }
-
         #user-login p {
             font-size: 1.3rem;
             font-family: "Open Sans";
@@ -348,7 +353,7 @@
                 background-position: top right;
                 align-items: center;
             }
-
+            
             #user-login img {
                 width: 4rem;
                 height: auto;
@@ -383,7 +388,6 @@
                 justify-content: flex-start;
                 margin-top: 3rem;
             }
-
             .app {
                 text-align: center;
                 font-size: 1.7rem;
@@ -417,9 +421,9 @@
     <div id="box-for-all">
         <div id="user-login">
             <img src="/data/userLogo.svg">
-            <?php
-            if (!isset($_SESSION["sessionID"])) {
-                echo "<p>Prijavi se</p>";
+            <?php 
+            if(!isset($_SESSION["sessionID"])) {
+            echo "<p>Prijavi se</p>";
             } else {
                 $json_file = file_get_contents("login/tempLogin/temp_" . $_SESSION['sessionID'] . ".txt");
                 $personObjects = json_decode($json_file);
@@ -435,14 +439,15 @@
 
         <div id="list-of-apps">
 
-            <?php
-            $directory = new DirectoryIterator("apps/");
+<?php
+$directory = new DirectoryIterator("apps/");
 
-            foreach ($directory as $directory) {
-                if ($directory->isDot()) {
-                } else {
-                    if ($directory->isDir()) {
-                        echo "
+foreach ($directory as $directory) {
+    if ($directory->isDot()) {
+
+    } else {
+        if ($directory->isDir()) {
+            echo "
             <a class=link-to-app href=apps/{$directory}/index.php>
                 <div class=app>
                     <img src=apps/{$directory}/assets/icon/icon.svg>
@@ -450,10 +455,12 @@
                 </div>
             </a>
             ";
-                    }
-                }
-            }
-            ?>
+        }
+
+    }
+
+}
+?>
         </div>
 
         <div id="sponsors">
@@ -476,6 +483,7 @@
         document.getElementById("container-for-title").getElementsByTagName("h3")[0].textContent = Podaci.Zaduzenja[0].ImeSkole;
     </script>
     <script>
+
         function setInitBackgroundImage() {
             var xScreen = screen.width;
             var yScreen = screen.height;
@@ -494,7 +502,6 @@
             }
 
         }
-
         function bcgImageSet() {
             var xScreen = screen.width;
             var yScreen = screen.height;
@@ -516,28 +523,30 @@
         //bcgImageSet();
         window.addEventListener("orientationchange", bcgImageSet);
         setInitBackgroundImage();
+
+
     </script>
     <script>
-        function logOut() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("search-text").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "login/logout.php?logOutNow=true", true);
-            xhttp.send();
-        }
+    function logOut() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+             document.getElementById("search-text").innerHTML = this.responseText;
+            }
+          };
+          xhttp.open("GET", "login/logout.php?logOutNow=true", true);
+          xhttp.send();
+}
 
-        document.getElementById("user-login").onclick = function() {
-            if (document.getElementById("log-out")) {
+        document.getElementById("user-login").onclick = function () {
+            if(document.getElementById("log-out")) {
                 var urlToPowerAppLogOut = "login/logout.php";
                 window.open(urlToPowerAppLogOut, "_parent");
 
             } else {
                 var urlToPowerApp = "login/login.php";
                 window.open(urlToPowerApp, "_parent");
-
+                
             }
 
         }

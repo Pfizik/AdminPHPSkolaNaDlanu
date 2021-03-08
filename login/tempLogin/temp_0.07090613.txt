@@ -1,0 +1,7 @@
+{
+    "e_posta"       : "nikola.vujacic@skole.hr", 
+    "ustanova"      : "gimnazija-pula",
+    "funkcija"      : "djelatnik",
+    "sesija"        : "0.07090613",
+    "imeIPrezime"   : "Nikola Vujačić"
+}

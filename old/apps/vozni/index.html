@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="header-bar">
+        <img id="back-button" src="back.png" alt="back button">
+        <p id="name">Raspored autobusa</p>
+    </div>
+    <div id="master">
+        <div id="dock-left">
+            <img class="in-dock" id="pula-promet-logo" src="pplogomali.png"></img>
+            <div class="in-dock" id="from-select">
+                <p>From:</p>
+            </div>
+            <div class="in-dock" id="to-select">
+                <p>To:</p>
+            </div>
+            <div class="in-dock" id="time-select">
+                <div id="hours"></div>
+                <p id="dvot">:</p>
+                <div id="minutes"></div>
+            </div>
+            <div class="in-dock" id="date-select">
+                <p>Date:</p>
+            </div>
+            <div class="in-dock" id="search-button">
+                <p id="search-word">SEARCH</p>
+            </div>
+        </div>
+        <div id="switch-button">
+            <img id="map-icon" src="map-icon-white.png" alt="map-icon-white">
+        </div>
+        <iframe id="dock-right" frameBorder="0" src="map.html"></iframe>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
